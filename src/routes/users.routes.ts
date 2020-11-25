@@ -1,12 +1,13 @@
 import { Router } from 'express';
 import { userController } from '../controllers/users.controllers';
+import { checkJwt } from '../middlewares/checkJwt';
 
 class UsersRoutes {
 
     public router: Router = Router();
 
     constructor() {
-        this.router.get('/', userController.index);
+        this.router.get('/', [checkJwt], userController.index);
         this.router.post('/', userController.create);
         
 

@@ -8,11 +8,11 @@ class AuthorRoutes {
     constructor() {
         this.router.get('/', authorController.index );
         this.router.post('/', authorController.create);
-        this.router.get('/info', );
+    
 
         this.router.get('/:id', authorController.getAuthorByPK);
-        this.router.put('/:id', authorController.update);
-        this.router.delete('/:id', authorController.delete);
+        this.router.delete('/:id/books', authorController.update);
+        // this.router.delete('/:id/books', authorController.delete);
     }
 }
 

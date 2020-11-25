@@ -3,6 +3,7 @@ import express from 'express';
 import { userRoutes } from './routes/users.routes';
 import { bookRoutes } from './routes/books.routes';
 import { authorRoutes } from './routes/author.routes'
+import { authRoutes } from './routes/auth.routes';
 
 // Instance the express framework
 const app  = express();
@@ -23,3 +24,6 @@ app.use(express.json());
 app.use('/users', userRoutes.router);
 app.use('/books', bookRoutes.router);
 app.use('/authors', authorRoutes.router);
+
+// Load Auth router
+app.use("/auth", authRoutes.router)

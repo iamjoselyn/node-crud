@@ -5,6 +5,6 @@
     "database": "node_crud",
     "host": "127.0.0.1",
     "dialect": "mysql"
-  }
-  
+  },
+  "jsonSecret": "WE18OB"
 }

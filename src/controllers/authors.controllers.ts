@@ -1,5 +1,6 @@
 import { Request, Response} from 'express';
 import { Author } from '../models/authors.model';
+import { Book } from '../models/books.model';
 
 class AuthorController {
     public async index (req: Request, res: Response) {
@@ -41,35 +42,22 @@ class AuthorController {
         
     }
 
+
     public async update (req: Request, res: Response) {
         try {
-            const newAuthor = await Author.update(
+            const deleteLink = await Book.update(
+                
                 {
-                    name: req.body.name,
-                    familyName: req.body.familyName,
+                    authorId: null, //Liberamos el libro que llega
                 },
+                
                 {
                     where: {
-                        id: req.params.id,
+                        id: req.body.id,
+                        authorId: req.params.id
                     }
-                }
-            );
-
-            res.json(newAuthor);
-            
-        }catch(error){
-            res.json(error);
-        }
-        
-    }
-
-    public async delete (req: Request, res: Response) {
-        try {
-            const deleteAuthor = await Author.destroy(
-                {
-                    where: {
-                        id: req.params.id,
-                    }
+                    //UPDATE Book SET AuthorId=null WHERE id=bodyParam AND authorId = UrlParam
+                    //404
                 }
                 
             );

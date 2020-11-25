@@ -1,4 +1,5 @@
 import { Request, Response} from 'express';
+import { Author } from '../models/authors.model';
 import { Book } from '../models/books.model';
 
 
@@ -6,7 +7,10 @@ class BookController {
     public async index (req: Request, res: Response) {
         try{
             const users = await Book.findAll({
-                raw:true
+                nest:true,
+                raw:true,
+                include: Author,
+                
             });
             res.send(users);
         }
