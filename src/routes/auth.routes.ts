@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { authController } from '../controllers/auth.controller';
-import { authorController } from '../controllers/authors.controllers';
+
 
 class AuthRoutes {
 
@@ -8,12 +8,8 @@ class AuthRoutes {
 
     constructor() {
         // this.router.get('/', authorController.index );
-        this.router.post('/', authController.index);
+        this.router.post('/login', authController.login);
     
-
-        // this.router.get('/:id', authorController.getAuthorByPK);
-        // this.router.delete('/:id/books', authorController.update);
-        // this.router.delete('/:id/books', authorController.delete);
     }
 }
 

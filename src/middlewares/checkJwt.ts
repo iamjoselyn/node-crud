@@ -15,8 +15,8 @@ export const checkJwt = (req: Request , res: Response, next: NextFunction) => {
         
 
     } catch( error) {
-        //si no ha sido valido el token que llega, devolvermos el 401
-        res.sendStatus(401);
+        //si no ha sido valido el token que llega, devolvemos el 401 o 404
+        res.sendStatus(404);
     }
 
     //sigo el flujo a mi controllador

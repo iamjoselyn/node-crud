@@ -19,7 +19,7 @@ User.init({
     },
     name: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
     },
     familyName: {
         type: DataTypes.STRING,
@@ -27,7 +27,11 @@ User.init({
     },
     email: {
         type: DataTypes.STRING,
-        allowNull: true 
+        allowNull: false
+    },
+    password: {
+        type: DataTypes.STRING,
+        allowNull: false
     },
     createdAt: {
         allowNull: false,

@@ -55,7 +55,7 @@ class UserController {
         }catch(error){
             res.json(error);
         }
-        
+
     }
 
     public async update (req: Request, res: Response) {
